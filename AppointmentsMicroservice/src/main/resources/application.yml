@@ -1,0 +1,38 @@
+
+spring:
+  profiles:
+    active: local
+
+---
+#local profile
+
+server:
+  port: 8081
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  application:
+    name: appointment_microservice
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tech_unicorn
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+#      Naming strategy for mapping to exact table name with Capitalization
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+
+
+
